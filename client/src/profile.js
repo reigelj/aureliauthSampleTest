@@ -8,6 +8,16 @@ export class Profile {
 		this.profile = null;
 	};
 	activate() {
+		// return this.http.fetch('http://localhost:8081/client', {
+		// 	headers: {
+		// 		'Authorization': 'Bearer ' + localStorage.getItem('id_token')
+		// 	}
+		// })
+		// 	.then(response => {
+		// 		this.randomQuote = response.content;
+		// 	}).catch(error => {
+		// 		console.log('Error getting quote');
+		// 	});
 		return this.auth.getMe()
 			.then(data => {
 				this.profile = data;

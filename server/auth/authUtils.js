@@ -3,8 +3,9 @@ var moment = require('moment');
 var jwt = require('jwt-simple');
 var config = require('../config');
 exports.createJWT = function(user){
+  // todo: Fix payload, sub:user._id
     var payload = {
-        sub: user._id,
+        sub: user,
         iat: moment().unix(),
         exp: moment().add(14, 'days').unix()
     };
@@ -17,6 +18,7 @@ exports.handleError = function (res, err) {
 
 
 exports.ensureAuthenticated = function(req, res, next) {
+  console.log("ENSURING AUTHENTICATION!!!");
   if (!req.headers.authorization) {
     return res.status(401).send({ message: 'Please make sure your request has an Authorization header' });
   }

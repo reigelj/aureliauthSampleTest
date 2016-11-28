@@ -1,38 +1,40 @@
 <template>
-<div class="container">
-  <div class="row">
-    <div class="center-form panel col-md-6">
-      <div class="panel-body">
-        <h2 class="text-center">Log in</h2>
-        <form method="post"  name="loginForm">
-          <div class="form-group has-feedback">
-            <input class="form-control input-lg" type="text" name="email" value.bind="email" placeholder="Email" required autofocus>
-            <span class="ion-at form-control-feedback"></span>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="center-form panel col-md-6">
+        <div class="panel-body">
+          <h2 class="text-center">Log in</h2>
+          <form method="post" name="loginForm">
+            <div class="form-group has-feedback">
+              <input class="form-control input-lg" type="text" name="email" value.bind="email" placeholder="Email" required autofocus>
+              <span class="ion-at form-control-feedback"></span>
+            </div>
 
-          <div class="form-group has-feedback">
-            <input class="form-control input-lg" type="password" name="password" value.bind="password" placeholder="Password" required>
-            <span class="ion-key form-control-feedback"></span>
-          </div>
+            <div class="form-group has-feedback">
+              <input class="form-control input-lg" type="password" name="password" value.bind="password" placeholder="Password" required>
+              <span class="ion-key form-control-feedback"></span>
+            </div>
 
-          <button type="submit" click.delegate="login()" class="btn btn-lg  btn-block btn-success">Log in</button>
+            <button type="submit" click.delegate="login()" class="btn btn-lg  btn-block btn-success">Log in</button>
 
-          <br/>
+            <br/>
 
-          <p class="text-center">
-            <a href="#">Forgot your password?</a>
-          </p>
+            <p class="text-center">
+              <a href="#">Forgot your password?</a>
+            </p>
 
-          <p class="text-center text-muted">
-            <small>Don't have an account yet? <a href="/#/signup">Sign up</a></small>
-          </p>
+            <p class="text-center text-muted">
+              <small>Don't have an account yet? <a href="/#/signup">Sign up</a></small>
+            </p>
 
-          <div class="signup-or-separator">
-            <h6 class="text">or</h6>
-            <hr>
-          </div>
-        </form>
-  <button class="btn btn-block btn-facebook" click.delegate="authenticate('identSrv', true)">
+            <div class="signup-or-separator">
+              <h6 class="text">or</h6>
+              <hr>
+            </div>
+          </form>
+          <hr>
+          <div class="alert alert-danger" if.bind="loginError">${loginError}</div>
+          <!--<button class="btn btn-block btn-facebook" click.delegate="authenticate('identSrv', true)">
           <i class="ion-social-facebook"></i> Sign in with IdentityServer
         </button>
         <button class="btn btn-block btn-facebook" click.delegate="authenticate('facebook', true)">
@@ -46,8 +48,8 @@
         </button>
         <button class="btn btn-block btn-twitter" click.delegate="authenticate('twitter', true)">
           <i class="ion-social-twitter"></i> Sign in with Twitter
-        </button>
-        <!-- <button class="btn btn-block btn-foursquare" click.delegate="authenticate('foursquare')">
+        </button>-->
+          <!-- <button class="btn btn-block btn-foursquare" click.delegate="authenticate('foursquare')">
           <i class="fa fa-foursquare"></i> Sign in with Foursquare
         </button>
         <button class="btn btn-block btn-github" click.delegate="authenticate('github')">
@@ -59,8 +61,8 @@
         <button class="btn btn-block btn-live" click.delegate="authenticate('live')">
           <i class="ion-social-windows"></i> Sign in with Windows Live
         </button> -->
+        </div>
       </div>
     </div>
   </div>
-</div>
 </template>

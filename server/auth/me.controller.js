@@ -3,16 +3,20 @@ var _ = require('lodash');
 var jwt = require('jwt-simple');
 var authUtils = require('./authUtils');
 var User = require('./user.model.js');
+var util = require('util');
 
 exports.getMe = function (req, res) {
-    console.log("GETTING MY PROFILE")
-    User.findById(req.user, function (err, user) {
+    console.log("GETTING MY PROFILE");
+    // console.log("My user " + JSON.stringify(util.inspect(req)));
+    console.log("My user " + JSON.stringify(req.user));
+    res.send(req.user);
+    // User.findById(req.user, function (err, user) {
         
-        if (!user) {
-            return res.status(404).send({message: 'User not found  ' + user + " or  " + req.user + " or " + err});
-        }
-        res.send(user);
-    });
+    //     if (!user) {
+    //         return res.status(404).send({message: 'User not found  ' + user + " or  " + req.user + " or " + err});
+    //     }
+    //     res.send(user);
+    // });
 };
 
 exports.updateMe = function (req, res) {

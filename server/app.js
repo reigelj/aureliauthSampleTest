@@ -17,7 +17,7 @@ var config = require('./config');
 var connectionString = config.mongo.connectionstring;
 
 console.log("connection string : " + connectionString);
-mongoose.connect(connectionString);
+// mongoose.connect(connectionString);
 
 // Setup server
 var app = express();
